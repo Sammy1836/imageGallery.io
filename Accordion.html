@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Accordion</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        .menu {}
+
+        .accordion {
+            background-color: rgb(77, 75, 75);
+            color: rgb(245, 237, 237);
+            cursor: pointer;
+            padding: 10px 15px;
+            width: 50%;
+            border-radius: 5px;
+            text-align: left;
+            transition: 0.4s;
+        }
+
+
+        .description {
+            display: none;
+            background-color: rgb(31, 29, 29);
+            color: rgb(165, 158, 158);
+            width: 50%;
+            padding: 5px 0px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            border-radius: 10px;
+            padding: 10px 25px;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: rgb(163, 159, 154);
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+
+
+        .button {
+            background-color: rgb(77, 75, 75);
+            color: rgb(245, 237, 237);
+            cursor: pointer;
+            padding: 10px 15px;
+            width: 50%;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Accordion</h1>
+    <div class="menu">
+        <button class="accordion">Profile</button>
+        <div class="description">
+            <ul style="list-style-type:none;">
+                <li>Name: XYZ</li>
+                <li>Email: abc@gmail.com</li>
+                <li>Bio: Gliberish....</li>
+            </ul>
+        </div>
+        <button class="accordion">Messeges</button>
+        <div class="description">
+            <ul style="list-style-type:square;">
+                <li>Inbox</li>
+                <li>Sent</li>
+                <li>Drafts</li>
+            </ul>
+        </div>
+        <button class="accordion">Settings</button>
+        <div class="description">
+            <ul style="list-style-type:none;">
+                <li>Edit Details</li>
+                <li>Privacy</li>
+                <li>Help</li>
+            </ul>
+        </div>
+        <button class="button">Logout</button>
+        <div class="description">
+
+        </div>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var description = this.nextElementSibling;
+                if (description.style.display === "block") {
+                    description.style.display = "none";
+                }
+                else {
+                    description.style.display = "block";
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
